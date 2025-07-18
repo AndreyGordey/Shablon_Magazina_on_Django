@@ -6,3 +6,5 @@
 5- python manage.py createsuperuser - создаем администратора(уже)
 	Логин: multi
 	Пароль:permrulit
+6- git branch two_days
+7- git checkout two_days
