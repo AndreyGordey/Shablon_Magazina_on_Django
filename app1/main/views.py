@@ -12,7 +12,7 @@ def index(request):
     context = {
         'title': 'Home - Главная',
         'content': "Магазин мебели HOME",
-        # 'categories': categories
+        'categories': Categories
 
     }
     
