@@ -8,6 +8,7 @@ from django.contrib.postgres.search import (
 
 from goods.models import Products
 
+from django.db.models import F
 
 def q_search(query):
     if query.isdigit() and len(query) <= 5:
@@ -38,7 +39,26 @@ def q_search(query):
             stop_sel="</span>",
         )
     )
-    return result
+    
+    
+    search_query = SearchQuery(query, config='russian')
+    search_vector = (
+        SearchVector('name', weight='A', config='russian') +
+        SearchVector('description', weight='B', config='russian')
+    )
+    qs = Products.objects.annotate(
+        rank=SearchRank(search_vector, search_query),
+        headline=SearchHeadline(
+            'description',
+            search_query,
+            start_sel='<span style="background-color: yellow;">',
+            stop_sel='</span>',
+            config='russian'
+        )
+    ).filter(rank__gt=0).order_by('-rank')
+    
+    
+    return result, qs
     
     
     # keywords = [word for word in query.split() if len(word) > 2]
