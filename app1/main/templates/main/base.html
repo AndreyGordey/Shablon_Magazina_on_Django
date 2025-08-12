@@ -58,7 +58,7 @@
                             <a class="nav-link  text-white" href="carts/cart.html">Корзина</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="{% url "users:login" %}">Войти</a>
+                            <a class="nav-link  text-white" href="{% url "user:login" %}">Войти</a>
                             {% comment %} <a class="nav-link  text-white" href="users/login.html">Войти</a> {% endcomment %}
                         </li>
                         <li class="nav-item dropdown ">
@@ -68,14 +68,14 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
-                                <li><a class="dropdown-item  text-white" href="{% url "users:profile" %}">Личный кабинет</a>
+                                <li><a class="dropdown-item  text-white" href="{% url "user:profile" %}">Личный кабинет</a>
                                 {% comment %} <li><a class="dropdown-item  text-white" href="users/profile.html">Личный кабинет</a> {% endcomment %}
                                 </li>
                                 <li><a class="dropdown-item  text-white" href="{% url "admin:index" %}">Админ панель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                {% comment %} <li><a class="dropdown-item  text-white" href="{% url "users:logout" %}">Выйти</a></li> {% endcomment %}
+                                <li><a class="dropdown-item  text-white" href="{% url "user:logout" %}">Выйти</a></li>
                                 {% comment %} <li><a class="dropdown-item  text-white" href="#">Выйти</a></li> {% endcomment %}
                             </ul>
                         </li>
