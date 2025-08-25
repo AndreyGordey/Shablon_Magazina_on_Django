@@ -30,3 +30,4 @@ class UserLoginForm(forms.ModelForm):
     #                                       'class': 'form-control',
     #                                       'placeholder': 'Введите ваш пароль'}),
     # )
+    
